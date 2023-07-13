@@ -70,7 +70,7 @@ if(filter_has_var(INPUT_POST,'submit'))
         {
             $msg="Password cannot start with a number";
         }
-        else if(preg_match("/[^a-zA-Z0-9]+/",$password[0]))
+        else if(preg_match("/[^a-zA-Z0-9]+/",$pass[0]))
         {
             $msg="Password cannot start with a special character";
         }

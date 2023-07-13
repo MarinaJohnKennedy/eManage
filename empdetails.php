@@ -37,7 +37,7 @@ if(isset($_POST['submit']))
 
     if(filter_has_var(INPUT_POST,'submit'))
     {
-        if(isset($_POST['gender']) && !empty($first) && !empty($last) && !empty($mobilenumber)  && !empty($emailid) && !empty($password)&& !empty($cpass) && !empty($dob) && !empty($addr) &&  !empty($role) && !empty($sal) && !empty($design))
+        if(isset($_POST['gender']) && !empty($first) && !empty($last) && !empty($mobilenumber)  && !empty($emailid) && !empty($password) && !empty($dob) && !empty($addr) &&  !empty($role) && !empty($sal) && !empty($design))
     {
         
         if(!preg_match("/^[a-zA-Z ]*$/",$first))
@@ -61,11 +61,11 @@ if(isset($_POST['submit']))
             $msg= "Last Name is NOT valid";
         }
     
-        else if(filter_var($mobilenumber,FILTER_VALIDATE_INT) === false && !preg_match("/^\d{10}$/",$mobile) && strlen($mobile)>10 || strlen($mobile)<10 )
+        else if(filter_var($mobilenumber,FILTER_VALIDATE_INT) === false && !preg_match("/^\d{10}$/",$mobilenumber) && strlen($mobilenumber)>10 || strlen($mobilenumber)<10 )
         {
             $msg= "Mobile Number is NOT valid";
         }
-        else if(filter_var($sal,FILTER_VALIDATE_INT) === false)
+        else if(filter_var($sal,FILTER_VALIDATE_FLOAT) === false)
         {
             $msg= "Salary is NOT valid";
         }
@@ -83,12 +83,10 @@ if(isset($_POST['submit']))
 
             if($result)
             {
-            header("Location:empdetails.php?id=".$_GET['id']);
+            
             $msg1="Updated account details";
             
-            
-
-            }
+        }
             else
             {
             $msg="Not updated";
@@ -102,8 +100,37 @@ if(isset($_POST['submit']))
             echo $e->getMessage();
         }
     }
+    } else
+    {
+        $msg="Please fill in all the fields";
+ 
     }}}
-  
+    if(isset($_POST['delete']))
+    {
+        
+
+        if(filter_has_var(INPUT_POST,'delete'))
+        {
+           
+                $query="delete from employees where id='".$_GET['id']."'";
+    
+                $result=mysqli_query($conn, $query);
+    
+                if($result)
+                {
+                
+              
+                $msg="Deleted Employee Successfully ";
+                }
+                else
+                {
+                $msg="Not Deleted";
+                }
+
+
+        
+        }
+    } 
 require("views/empdetails.view.php");
 
 ?>

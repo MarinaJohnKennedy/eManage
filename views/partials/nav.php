@@ -12,8 +12,8 @@
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
               <a href="emp.php" class="<?= $_SERVER['REQUEST_URI'] === '/eManage/emp.php'? 'bg-gray-900 text-white' : 'text-gray-300 '?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" >Employees</a>
               <a href="add.php" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/add.php') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300 ';} ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Add Employee</a>
-              <a href="import.php" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/import.php') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300';} ?> hover:bg-gray-700 hover:text-white   rounded-md px-3 py-2 text-sm font-medium">Import</a>
-              <a href="export.php" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/export.php') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300';} ?> hover:bg-gray-700 hover:text-white  rounded-md px-3 py-2 text-sm font-medium">Export</a>
+              <a href="import.php" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/import.php') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300';} ?> hover:bg-gray-700 hover:text-white   rounded-md px-3 py-2 text-sm font-medium">Import Employees</a>
+              <a href="export.php" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/export.php') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300';} ?> hover:bg-gray-700 hover:text-white  rounded-md px-3 py-2 text-sm font-medium">Export Employees</a>
               
             </div>
           </div>

@@ -17,6 +17,7 @@
       <th scope="col">Last Name</th>
       <th scope="col">Mobile Number</th>
       <th scope="col">Email ID</th>
+      
     </tr>
   </thead>
   <tbody>
@@ -28,6 +29,7 @@
       <td><?php echo $emp['lname']?></td>
       <td><?php echo $emp['mobilenumber']?></td>
       <td><?php echo $emp['emailid']?></td>
+    
       <td><a href="empdetails.php?id=<?php echo $emp['id']?>"><input type=button class=sub name=view value=View></a></td>
         <td><a href="exportbio.php?id=<?php echo $emp['id']?>"><input type=button class=sub name=expdf value='Export Biodata'></a></td>
     </tr>

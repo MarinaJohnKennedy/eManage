@@ -64,7 +64,7 @@
     </section>
 
     <?php endif; ?>
-    <form method="POST" action="myaccount.php" >
+    <form method="POST" action="employeehome.php" >
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
        <!--

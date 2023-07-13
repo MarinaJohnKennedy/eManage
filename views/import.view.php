@@ -4,15 +4,61 @@
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
       <!-- Your content -->
-     
+      <?php if($msg!=''): ?>
+    
+  
+    <section class="">
+        <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
+          <div class="p-6 border-l-4 border-red-500 rounded-r-xl bg-red-50">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg class="w-5 h-5 text-red-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="ml-3">
+                <div class="text-sm text-red-600">
+                  <p> <?=$msg?></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <?php endif; ?>
+  
+      <?php if($msg1!=''): ?>
+      
+  
+      <section class="">
+        <div class="relative items-center w-full px-5 py-12 mx-auto md:px-12 lg:px-24 max-w-7xl">
+          <div class="p-6 border-l-4 border-green-500 -6 rounded-r-xl bg-green-50">
+            <div class="flex">
+              <div class="flex-shrink-0">
+                <svg class="w-5 h-5 text-green-400" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd"></path>
+                </svg>
+              </div>
+              <div class="ml-3">
+                <div class="text-sm text-green-600">
+                  <p><?=$msg1?></p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+      <?php endif;
+       ?>
 
       <form action="download.php" method="post" enctype="multipart/form-data" >
       
-         <button type="submit" name="template" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Download Template</button>
+         <input type="submit" name="download" value="Download Template"class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
 
- </form>
+ </form  >
  <br>
- <form>
+ <form action="import.php" method="post" enctype="multipart/form-data" >
   
 
       <div class="space-y-12">
@@ -26,18 +72,19 @@
               </svg>
               <div class="mt-4 flex text-sm leading-6 text-gray-600">
                 <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2 hover:text-indigo-500">
-                  <span>Upload a file</span>
-                  <input id="file-upload" name="file-upload" type="file" class="sr-only">
+             
+                  <input id="file-upload" name="excel" type="file" class="sr ">
                 </label>
+
                 
               </div>
-              <p class="text-xs leading-5 text-gray-600">XLS</p>
+              <p class="text-xs leading-5 text-gray-600"></p>
             </div>
           </div>
         </div>
     </div>
     <div class="mt-6 flex items-center justify-end gap-x-6">
-    <button type="submit" name="submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Import</button>
+    <input type="submit" name="import" value="Import" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
   </div> </div> </div>
 </form>
   </main>
