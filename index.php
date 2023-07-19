@@ -2,7 +2,7 @@
 
 require("db.php");
 $heading="Login";
-require("views/index.view.php");
+
 
 session_start();
 
@@ -73,4 +73,5 @@ if(filter_has_var(INPUT_POST,'submit'))
     }
 
 }
+require("views/index.view.php");
 ?>
