@@ -1,8 +1,10 @@
 <?php
 
-require("db.php");
-$heading="Login";
 
+const BASE_PATH = __DIR__.'/../';
+
+$heading="Login";
+require BASE_PATH.'db.php';
 
 session_start();
 
@@ -48,14 +50,14 @@ if(filter_has_var(INPUT_POST,'submit'))
                 
                 if($utype=="Admin")
                 {
-                
-                header("Location:emp.php");
-           
+                    //$uri= '/eManage/controllers/employees';
+                    header("Location:/eManage/controllers/employees.php");
+                   
                 }
                 else if($utype=="Employee")
                 {
                     
-                    header("Location:employeehome.php");
+                    header("Location:controllers/employeehome.php");
                 }
                 
             }
@@ -73,5 +75,5 @@ if(filter_has_var(INPUT_POST,'submit'))
     }
 
 }
-require("views/index.view.php");
+require BASE_PATH .'views/index.view.php';
 ?>

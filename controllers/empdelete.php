@@ -1,5 +1,6 @@
 <?php 
-require("db.php");
+const BASE_PATH = __DIR__ . "/../";
+require BASE_PATH .'db.php';
 $msg="";
 $msg1="";
 session_start();
@@ -47,6 +48,6 @@ if(isset($_GET['id']))
         
         }
     } 
-require("views/empdelete.view.php");
+    require BASE_PATH ."views/empdelete.view.php";
 
 ?>

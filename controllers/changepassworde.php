@@ -1,5 +1,6 @@
 <?php 
-require("db.php");
+const BASE_PATH = __DIR__ . "/../";
+require BASE_PATH .'db.php';
 $msg='';
 $msg1='';
 $heading="Change Password";
@@ -81,6 +82,6 @@ if(filter_has_var(INPUT_POST,'submit'))
     }
 }
 
-require("views/changepassworde.view.php");
+require BASE_PATH ."views/changepassworde.view.php";
 ?>
 

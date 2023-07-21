@@ -22,7 +22,7 @@
   </thead>
   <tbody>
   <?php foreach($emps as $emp): ?>
-    <form action=emp.php method=GET>
+    <form action='eManage/controllers/employees.php' method=GET>
     <tr>
       <th scope="row"><?php echo $emp['id']?></th>
       <td><?php echo $emp['fname']?></td>

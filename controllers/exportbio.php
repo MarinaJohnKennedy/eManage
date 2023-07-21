@@ -1,5 +1,6 @@
 <?php 
-require("db.php");
+const BASE_PATH = __DIR__ . "/../";
+require BASE_PATH .'db.php';
 $msg="";
 session_start();
 
@@ -146,6 +147,7 @@ $dompdf->render();
 
 $dompdf->stream("Biodata_".$fname.".pdf");
 
-require("views/exportbio.view.php");
+
+require BASE_PATH ."views/exportbio.view.php";
 
 ?>

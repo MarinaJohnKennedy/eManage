@@ -1,6 +1,7 @@
 <?php 
-require("db.php");
-require 'vendor/autoload.php';
+const BASE_PATH = __DIR__ . "/../";
+require BASE_PATH .'db.php';
+require BASE_PATH .'vendor/autoload.php';
 
 use PhpOffice\PhpSpreadsheet\Spreadsheet;
 use PhpOffice\PhpSpreadsheet\Writer\Xlsx;
@@ -60,7 +61,7 @@ if(isset($_POST['import']))
 }
 
 
-require("views/import.view.php");
+require BASE_PATH ."views/import.view.php";
 
 ?>
 

@@ -1,5 +1,6 @@
 <?php 
-require("db.php");
+const BASE_PATH = __DIR__ . "/../";
+require BASE_PATH .'db.php';
 $msg='';
 $msg1='';
 session_start();
@@ -89,6 +90,6 @@ if(isset($_POST['submit']))
     
 
 
-    require("views/employeehome.view.php");
+require BASE_PATH ."views/employeehome.view.php";
 ?>
 
