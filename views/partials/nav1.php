@@ -45,9 +45,9 @@
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 <a href="/" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Hi <?= $_SESSION['firstname'].' '.$_SESSION['lastname']?></a>
                
-                <a href="employeehome.php" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">My Account</a>
-                <a href="changepassworde.php" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Change Password</a>
-                <a href="index.php" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Logout</a>
+                <a href="/home" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">My Account</a>
+                <a href="/changepassworde" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Change Password</a>
+                <a href="/" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Logout</a>
               </div>
             </div>
           </div>

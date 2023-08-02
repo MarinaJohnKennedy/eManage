@@ -1,8 +1,10 @@
 <?php 
-const BASE_PATH = __DIR__ . "/../";
-require BASE_PATH .'db.php';
+const BASE_PATH = __DIR__.'/../';
+
 $msg='';
 $msg1='';
+require BASE_PATH.'db.php';
+
 session_start();
 $heading="My Account";
 $idss=$_SESSION['ids'];
@@ -13,17 +15,7 @@ $email=$_SESSION['emailid'];
                 
 if(isset($_POST['submit']))
 {
-    $first=$_POST['firstname'];
-    $last=$_POST['lastname'];
-    $mobile=$_POST['mobilenumber'];
-    $emailid=$_POST['emailid'];
-    $pass=$_POST['password'];
-    $dob=$_POST['dob'];
-    $addr=$_POST['address'];
-    $role=$_POST['role'];
-    $sal=$_POST['salary'];
-    $design=$_POST['designation'];
-
+  
     if(filter_has_var(INPUT_POST,'submit'))
     {
         if(!empty($first) && !empty($last) && !empty($mobile)  && !empty($emailid)  && !empty($addr)  && !empty($pass))
@@ -90,6 +82,6 @@ if(isset($_POST['submit']))
     
 
 
-require BASE_PATH ."views/employeehome.view.php";
+require BASE_PATH ."views/home.view.php";
 ?>
 

@@ -3,12 +3,11 @@
 const BASE_PATH = __DIR__.'/../';
 
 
-
 $heading = "Employees";
+require_once BASE_PATH.'router.php';
 require BASE_PATH.'db.php';
-require BASE_PATH.'router.php';
-echo $uri;
 session_start();
+
 
 
 $msg="";

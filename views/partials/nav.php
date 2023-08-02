@@ -10,10 +10,10 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/eManage/employees" class="<?= $_SERVER['REQUEST_URI'] === '/eManage/employees'? 'bg-gray-900 text-white' : 'text-gray-300 '?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" >Employees</a>
-              <a href="/eManage/addemployee" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/addemployee') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300 ';} ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Add Employee</a>
-              <a href="/eManage/import" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/import') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300';} ?> hover:bg-gray-700 hover:text-white   rounded-md px-3 py-2 text-sm font-medium">Import Employees</a>
-              <a href="/eManage/export" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/export') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300';} ?> hover:bg-gray-700 hover:text-white  rounded-md px-3 py-2 text-sm font-medium">Export Employees</a>
+              <a href="/employees" class="<?= $_SERVER['REQUEST_URI'] === '/eManage/employees'? 'bg-gray-900 text-white' : 'text-gray-300 '?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" >Employees</a>
+              <a href="/addemployee" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/addemployee') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300 ';} ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Add Employee</a>
+              <a href="/import" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/import') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300';} ?> hover:bg-gray-700 hover:text-white   rounded-md px-3 py-2 text-sm font-medium">Import Employees</a>
+              <a href="/export" class="<?php if($_SERVER['REQUEST_URI'] === '/eManage/export') { echo 'bg-gray-900 text-white';} else { echo 'text-gray-300';} ?> hover:bg-gray-700 hover:text-white  rounded-md px-3 py-2 text-sm font-medium">Export Employees</a>
               
             </div>
           </div>
@@ -45,9 +45,9 @@
                 <!-- Active: "bg-gray-100", Not Active: "" -->
                 <a href="" class="block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">Hi <?= $_SESSION['firstname'].' '.$_SESSION['lastname']?></a>
                
-                <a href="myaccount.php" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">My Account</a>
-                <a href="changepassword.php" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Change Password</a>
-                <a href="index.php" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Logout</a>
+                <a href="/myaccount" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-0">My Account</a>
+                <a href="/changepassword" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-1">Change Password</a>
+                <a href="/" class="hover:bg-gray-300 block px-4 py-2 text-sm text-gray-700" role="menuitem" tabindex="-1" id="user-menu-item-2">Logout</a>
               </div>
             </div>
           </div>

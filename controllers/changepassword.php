@@ -4,6 +4,7 @@ require BASE_PATH .'db.php';
 $msg='';
 $msg1='';
 $heading="Change Password";
+
 session_start();
 
 $idss=$_SESSION['ids'];

@@ -4,8 +4,13 @@
 const BASE_PATH = __DIR__.'/../';
 
 $heading="Login";
-require BASE_PATH.'db.php';
 
+
+require("db.php");
+
+
+
+$msg='';
 session_start();
 
 
@@ -41,6 +46,7 @@ if(filter_has_var(INPUT_POST,'submit'))
         $row = mysqli_fetch_array($result,MYSQLI_ASSOC);
             if($count==1)
             {                
+                session_start();        
                 $_SESSION['usertype']=$row['ut'];
                 $utype=$_SESSION['usertype'];
                 $_SESSION['ids']=$row['id'];
@@ -50,14 +56,14 @@ if(filter_has_var(INPUT_POST,'submit'))
                 
                 if($utype=="Admin")
                 {
-                    //$uri= '/eManage/controllers/employees';
-                    header("Location:/eManage/controllers/employees.php");
-                   
+                 
+                    header('Location: /employees');
+                  
                 }
                 else if($utype=="Employee")
                 {
+                    header('Location: /home');
                     
-                    header("Location:controllers/employeehome.php");
                 }
                 
             }

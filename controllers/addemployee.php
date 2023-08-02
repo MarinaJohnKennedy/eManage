@@ -1,13 +1,15 @@
 <?php
 const BASE_PATH = __DIR__ . "/../";
-require BASE_PATH.'functions.php';
-require BASE_PATH.'db.php';
+
+
 $msg='';
 $msg1='';
 $heading="Add Employee";
 session_start();
-require BASE_PATH.'router.php';
-session_start();
+
+require BASE_PATH.'db.php';
+
+
 
 
 if(isset($_POST['submit']))
@@ -113,6 +115,6 @@ else
             }
 }
 
-require BASE_PATH ."views/add.view.php";
+require BASE_PATH ."views/addemployee.view.php";
 ?>
 
