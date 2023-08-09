@@ -1,96 +1,78 @@
 <?php 
-const BASE_PATH = __DIR__ . "/../";
-require BASE_PATH .'db.php';
+
 $msg='';
 $msg1='';
 
-
-session_start();
-$heading="My Account";
-$idss=$_SESSION['ids'];
+$idss=$_SESSION['id'];
 $utype=$_SESSION['usertype'];
-$email=$_SESSION['emailid'];
+$email=$_SESSION['email'];
 
+use Core\App;
+use Core\Database;
+use Core\Validator;
 
-                
-if(isset($_POST['submit']))
+$db= App::resolve(Database::class);
+
+$errors= [];
+
+$id= $_SESSION['user']['id'];
+
+if(! Validator::string($_POST['firstname'],1, 200))
 {
-    $first=$_POST['firstname'];
-    $last=$_POST['lastname'];
-    $mobile=$_POST['mobilenumber'];
-    $emailid=$_POST['emailid'];
-    $pass=$_POST['password'];
-    $dob=$_POST['dob'];
-    $addr=$_POST['address'];
-    $role=$_POST['role'];
-    $sal=$_POST['salary'];
-    $design=$_POST['designation'];
+    $errors['body'] ='First Name is NOT valid'; 
+}
 
-    if(filter_has_var(INPUT_POST,'submit'))
+if(! Validator::string($_POST['lastname'],1, 200))
+{
+    $errors['body'] ='Last Name is NOT valid'; 
+}
+if(! Validator::email($email))
+{
+    $errors['email']= "Please a provide a valid email address";
+}
+
+if(! Validator::string($password))
+{
+    $errors['password']= "Please a provide a valid password";
+}
+
+if(! empty($errors))
     {
-        if(!empty($first) && !empty($last) && !empty($mobile)  && !empty($emailid)  && !empty($addr)  && !empty($pass))
-      {
-        if(!preg_match("/^[a-zA-Z ]*$/",$first))
-        {
-            $msg= "First Name is NOT valid";
-        }
-    
-        else if(!preg_match("/^[a-zA-Z ]*$/",$last))
-        {
-            $msg= "Last Name is NOT valid";
-        }
-    
-        else if(filter_var($mobile,FILTER_VALIDATE_INT) === false && !preg_match("/^\d{10}$/",$mobile) && strlen($mobile)>10 || strlen($mobile)<10 )
-        {
-            $msg= "Mobile Number is NOT valid";
-        }
-        else if(filter_var($email, FILTER_VALIDATE_EMAIL)=== false)
-            {
-                $msg="Please use a valid E-mail ID";
-            }
-            else if(  strlen($pass)<10 )
-        {
-            $msg="Password cannot be less than 10 charctaers long";
-        }   
-        else if( is_numeric($pass[0]))
-        {
-            $msg="Password cannot start with a number";
-        }
-            else if(preg_match("/[^a-zA-Z0-9]+/",$pass[0]))
-        {
-            $msg="Password cannot start with a special character";
-        }
-        else{
-            try{
-                $gender=$_POST['gender'];
-            $query="update employees set fname='$first',lname='$last',gender='$gender',mobilenumber='$mobile',emailid='$emailid',dob='$dob',password='$pass',addr='$addr' where id='$idss'";
-
-            $result=mysqli_query($conn, $query);
-
-            if($result)
-            {
-            $msg1="Updated account details";
-            }
-            else
-            {
-            $msg="Not updated";
-            }
-
-        }
-        catch(Exception $e)
-        {
-            echo $e->getMessage();
-        }
-    }}
-    else
-    {
-        $msg="Please fill in all the fields";
- 
+        view("myaccount.view.php",[
+            'heading' => 'My Account',
+            'errors' => $errors
+            ]);
     }
-}}
-//view("myaccount.view.php", [
-    //'heading' => 'My Account',
-//]);
-require BASE_PATH ."views/myaccount.view.php";
+       
+    if(empty($errors))
+    {
+      
+
+        $db->query('UPDATE  employees set fname=:fname ,lname= :lname,gender= :gender,mobilenumber=:mobilenumber,email=:email,password=:password,dob=:dob,addr=:addr where id=:id',[
+            'fname' => $_POST['firstname'],
+            'lname' => $_POST['lastname'],
+            'gender' => $_POST['gender'],
+            'mobilenumber' => $_POST['mobilenumber'],
+            'email' => $_POST['email'],
+            'password' => $_POST['password'],
+            'dob' => $_POST['dob'],
+            'address' => $_POST['address'],
+            'id' => $$id
+        ]);
+        header('location: /employees');
+        die();
+    }
+
+authorize($note['user_id'] === $currentUserId);
+                
+
+
+
+
+      
+view("myaccount.view.php", [
+'heading' => 'My Account',
+]);
+
 ?>
 

@@ -1,14 +1,11 @@
-<?php require base_path('views/partials/header.php')?>
-
-<?php require base_path('views/partials/nav1.php')?>
-<?php require base_path('views/partials/banner.php')?>
+<?php require base_path('views/partials/header.php');?>
+<?php require base_path('views/partials/nav3.php');?>
+<?php require base_path('views/partials/banner.php');?>
 
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-    
-
-    
-    <form method="POST" action="" >
+  
+    <form method="POST" action="/employees" >
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
        <!--
@@ -70,25 +67,26 @@
       <p class="mt-1 text-sm leading-6 text-gray-600">Use a permanent address where you can receive mail.</p>
 -->
 
+
 <div class="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
         <div class="sm:col-span-3">
           <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
           <div class="mt-2">
-            <input type="text" name="firstname" value="<?=$row['fname']?>" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="firstname" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
           <div class="mt-2">
-            <input type="text" name="lastname" value="<?=$row['lname']?>" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="lastname"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Mobile Number</label>
           <div class="mt-2">
-            <input type="text" name="mobilenumber" value="<?=$row['mobilenumber']?>" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="mobilenumber"  class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
@@ -97,9 +95,9 @@
           <div class="mt-2">
           <fieldset>
             <div class="flex items-center gap-x-3">
-              <input  name="gender" <?php if($row['gender']=="Male") {echo "checked";}?> value="Male" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+              <input  name="gender" value="Male" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
               <label for="push-everything" class="block text-sm font-medium leading-6 text-gray-900">Male</label>
-              <input name="gender" <?php if($row['gender']=="Female") {echo "checked";}?> value="Female" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
+              <input name="gender" value="Female" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
               <label for="push-email" class="block text-sm font-medium leading-6 text-gray-900">Female</label>
             
             </div>
@@ -110,36 +108,41 @@
         <div class="sm:col-span-3">
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <div class="mt-2">
-            <input id="email" name="emailid" value="<?=$row['email']?>" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input id="email" name="email" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
         <div class="sm:col-span-3">
           <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">Date of Birth</label>
           <div class="mt-2">
-            <input type="date" name="dob" id="dob" value='<?=$row['dob']?>' class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="date" name="dob" id="dob" autocomplete="postal-code" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
         
         <div class="sm:col-span-3">
           <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
           <div class="mt-2">
-            <input type="text" name="text" id="password" value='<?=$row['password']?>' autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="password" id="password" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
 
-        
+        <div class="sm:col-span-3">
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Confirm Password</label>
+          <div class="mt-2">
+            <input type="text" name="cpassword" id="cpassword" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+          </div>
+        </div>
  
         <div class="col-span-full">
           <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
           <div class="mt-2">
-            <input type="text" name="address" id="address" value="<?=$row['addr']?>" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input type="text" name="address" id="address" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
         
         <div class="sm:col-span-3">
-          <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Role (Cannot be edited)</label>
+          <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
           <div class="mt-2">
-            <select id="role" name="role" value="<?=$row['role']?>" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"  >
+            <select id="role" name="role" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"  >
               <option>Employee</option>
               <option>Admin</option>
               
@@ -149,20 +152,20 @@
 
       
         <div class="sm:col-span-3">
-          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Salary (Cannot be edited)</label>
+          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
           <div class="mt-2">
-            <input type="salary" name="salary" value="<?=$row['sal']?>" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+            <input type="salary" name="salary" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Designation (Cannot be edited)</label>
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Designation</label>
           <div class="mt-2">
-            <input type="text" name="designation" value="<?=$row['design']?>" id="designation" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+            <input type="text" name="designation" id="designation" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
           </div>
         </div>
 
-  
+        
       </div>
     </div>
 <!--
@@ -233,4 +236,5 @@
 
     </div>
   </main>
-  <?php require base_path('views/partials/footer.php');?>
+  
+<?php require base_path('views/partials/footer.php');?>

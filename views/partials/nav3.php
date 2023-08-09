@@ -8,11 +8,14 @@
           <div class="hidden md:block">
             <div class="ml-10 flex items-baseline space-x-4">
               <!-- Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" -->
-              <a href="/" class="<?= urlIs('/') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" >Home</a>
-              <a href="/about" class="<?= urlIs('/about') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">About Us</a>
+              <a href="/employees" class="<?= urlIs('/employees') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" >Employees</a>
+              <a href="/employees/create" class="<?= urlIs('/employees/create') ? 'bg-gray-900 text-white' : 'text-gray-300' ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium" >Create Employee</a>
+              <a href="/employees/import" class="<?= urlIs('/employees/import') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Import Employee</a>
               
-              <a href="/contact" class="<?= urlIs('/contact')? 'bg-gray-900 text-white' : 'text-gray-300'?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Contact Us</a>
-                  
+              <a href="/employees/export" class="<?= urlIs('/employees/export')? 'bg-gray-900 text-white' : 'text-gray-300'?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Export Employee</a>
+              <a href="/admin/account" class="<?= urlIs('/admin/account')? 'bg-gray-900 text-white' : 'text-gray-300'?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">My Account</a>
+              <a href="/admin/changepassword" class="<?= urlIs('/admin/changepassword')? 'bg-gray-900 text-white' : 'text-gray-300'?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Change Password</a>
+               
               </div>
           </div>
         </div>
@@ -25,10 +28,10 @@
             <!-- Profile dropdown -->
             <div class="relative ml-3">
               <div>
-                
-                 <?php if($_SESSION['user'] ?? false):?>
+                  <?php if($_SESSION['user'] ?? false):?>
                     <button class="text-white"><?= "Welcome, " .$_SESSION['user']['fname']. " ".$_SESSION['user']['lname']?></b>
-               <?php else: ?>
+              
+                  <?php else: ?>
                     <a href="/register" class="<?= urlIs('/register') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Register</a>
                     <a href="/login" class="<?= urlIs('/login') ? 'bg-gray-900 text-white' : 'text-gray-300'  ?> hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium">Login</a>
               

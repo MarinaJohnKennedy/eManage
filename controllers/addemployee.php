@@ -7,7 +7,7 @@ $msg1='';
 $heading="Add Employee";
 session_start();
 
-require BASE_PATH.'db.php';
+
 
 
 

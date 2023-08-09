@@ -1,87 +1,20 @@
 <?php 
-const BASE_PATH = __DIR__.'/../';
-
-$msg='';
-$msg1='';
-require BASE_PATH.'db.php';
-
-session_start();
-$heading="My Account";
-$idss=$_SESSION['ids'];
-$utype=$_SESSION['usertype'];
-$email=$_SESSION['emailid'];
 
 
-                
-if(isset($_POST['submit']))
-{
-  
-    if(filter_has_var(INPUT_POST,'submit'))
-    {
-        if(!empty($first) && !empty($last) && !empty($mobile)  && !empty($emailid)  && !empty($addr)  && !empty($pass))
-      {
-        if(!preg_match("/^[a-zA-Z ]*$/",$first))
-        {
-            $msg= "First Name is NOT valid";
-        }
-    
-        else if(!preg_match("/^[a-zA-Z ]*$/",$last))
-        {
-            $msg= "Last Name is NOT valid";
-        }
-    
-        else if(filter_var($mobile,FILTER_VALIDATE_INT) === false && !preg_match("/^\d{10}$/",$mobile) && strlen($mobile)>10 || strlen($mobile)<10 )
-        {
-            $msg= "Mobile Number is NOT valid";
-        }
-        else if(filter_var($email, FILTER_VALIDATE_EMAIL)=== false)
-            {
-                $msg="Please use a valid E-mail ID";
-            }
-            else if(  strlen($pass)<10 )
-        {
-            $msg="Password cannot be less than 10 charctaers long";
-        }   
-        else if( is_numeric($pass[0]))
-        {
-            $msg="Password cannot start with a number";
-        }
-            else if(preg_match("/[^a-zA-Z0-9]+/",$pass[0]))
-        {
-            $msg="Password cannot start with a special character";
-        }
-        else{
-            try{
-                $gender=$_POST['gender'];
-            $query="update employees set fname='$first',lname='$last',gender='$gender',mobilenumber='$mobile',emailid='$emailid',dob='$dob',password='$pass',addr='$addr' where id='$idss'";
+use Core\App;
+use Core\Database;
 
-            $result=mysqli_query($conn, $query);
+$db= App::resolve(Database::class);
 
-            if($result)
-            {
-            $msg1="Updated account details";
-            }
-            else
-            {
-            $msg="Not updated";
-            }
+$currentUserId= $_SESSION['user']['id'];
 
-        }
-        catch(Exception $e)
-        {
-            echo $e->getMessage();
-        }
-    }}
-    else
-    {
-        $msg="Please fill in all the fields";
- 
-    }
-}}
+$row=$db->query("select id,fname,lname,gender,mobilenumber,email,password,dob,addr,role,sal,design from employees where id = :id", ['id' => $currentUserId])->findOrFail();
 
-    
+authorize($row['id'] === $currentUserId);
 
-
-require BASE_PATH ."views/home.view.php";
+view("home.view.php",[
+    'heading' => 'Home'
+]
+);
 ?>
 

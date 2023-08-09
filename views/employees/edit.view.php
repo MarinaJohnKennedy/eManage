@@ -1,15 +1,15 @@
-<?php require base_path('views/partials/header.php')?>
-
-<?php require base_path('views/partials/nav1.php')?>
-<?php require base_path('views/partials/banner.php')?>
+<?php require base_path('views/partials/header.php');?>
+<?php require base_path('views/partials/nav3.php');?>
+<?php require base_path('views/partials/banner.php');?>
 
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
-    
-
-    
-    <form method="POST" action="" >
-  <div class="space-y-12">
+  
+     
+    <form method="POST" action="/employees" >
+    <input type="hidden" name="_method" value="PATCH">
+    <input type="hidden" name="id" value="<?= $row['id']?>">
+     <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
        <!--
       <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
@@ -110,7 +110,7 @@
         <div class="sm:col-span-3">
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <div class="mt-2">
-            <input id="email" name="emailid" value="<?=$row['email']?>" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <input  type="text" id="email" name="email" value="<?=$row['email']?>" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
           </div>
         </div>
         <div class="sm:col-span-3">
@@ -120,13 +120,7 @@
           </div>
         </div>
         
-        <div class="sm:col-span-3">
-          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-          <div class="mt-2">
-            <input type="text" name="text" id="password" value='<?=$row['password']?>' autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          </div>
-        </div>
-
+      
         
  
         <div class="col-span-full">
@@ -137,7 +131,7 @@
         </div>
         
         <div class="sm:col-span-3">
-          <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Role (Cannot be edited)</label>
+          <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
           <div class="mt-2">
             <select id="role" name="role" value="<?=$row['role']?>" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"  >
               <option>Employee</option>
@@ -149,22 +143,27 @@
 
       
         <div class="sm:col-span-3">
-          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Salary (Cannot be edited)</label>
+          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
           <div class="mt-2">
             <input type="salary" name="salary" value="<?=$row['sal']?>" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Designation (Cannot be edited)</label>
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Designation</label>
           <div class="mt-2">
             <input type="text" name="designation" value="<?=$row['design']?>" id="designation" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
           </div>
         </div>
-
-  
-      </div>
+        </div>
     </div>
+        <div class="mt-6 flex items-center justify-end gap-x-6">
+    
+        <button type="submit" name="submit"  class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">Update</button>
+      
+        </div>
+      
+     
 <!--
     <div class="border-b border-gray-900/10 pb-12">
       <h2 class="text-base font-semibold leading-7 text-gray-900">Notifications</h2>
@@ -225,12 +224,11 @@
     </div>
   </div>
 -->
-  <div class="mt-6 flex items-center justify-end gap-x-6">
-    
-    <input type="submit" id="submit" name="submit" value="Submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-  </div>
+  
 </form>
 
     </div>
   </main>
+
+
   <?php require base_path('views/partials/footer.php');?>

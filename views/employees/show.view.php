@@ -1,16 +1,20 @@
 <?php require base_path('views/partials/header.php')?>
 
-<?php require base_path('views/partials/nav1.php')?>
+<?php require base_path('views/partials/nav3.php')?>
 <?php require base_path('views/partials/banner.php')?>
 
   <main>
     <div class="mx-auto max-w-7xl py-6 sm:px-6 lg:px-8">
+ 
     
-
-    
-    <form method="POST" action="" >
+ 
+    <?php if(isset($errors['email'])): ?>
+              <p class="text-red-500 text-xs mt-2"><?= $errors['email'] ?></p>
+              <?php endif; ?>
+   
   <div class="space-y-12">
     <div class="border-b border-gray-900/10 pb-12">
+    
        <!--
       <h2 class="text-base font-semibold leading-7 text-gray-900">Profile</h2>
       <p class="mt-1 text-sm leading-6 text-gray-600">This information will be displayed publicly so be careful what you share.</p>
@@ -74,95 +78,80 @@
         <div class="sm:col-span-3">
           <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">First name</label>
           <div class="mt-2">
-            <input type="text" name="firstname" value="<?=$row['fname']?>" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <p><?= htmlspecialchars($row['fname'])?></p>
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Last name</label>
           <div class="mt-2">
-            <input type="text" name="lastname" value="<?=$row['lname']?>" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <p>  <?=htmlspecialchars($row['lname'])?> </p>
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Mobile Number</label>
           <div class="mt-2">
-            <input type="text" name="mobilenumber" value="<?=$row['mobilenumber']?>" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <p> <?=htmlspecialchars($row['mobilenumber'])?></p>
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Gender</label>
           <div class="mt-2">
-          <fieldset>
-            <div class="flex items-center gap-x-3">
-              <input  name="gender" <?php if($row['gender']=="Male") {echo "checked";}?> value="Male" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
-              <label for="push-everything" class="block text-sm font-medium leading-6 text-gray-900">Male</label>
-              <input name="gender" <?php if($row['gender']=="Female") {echo "checked";}?> value="Female" type="radio" class="h-4 w-4 border-gray-300 text-indigo-600 focus:ring-indigo-600">
-              <label for="push-email" class="block text-sm font-medium leading-6 text-gray-900">Female</label>
-            
-            </div>
-          </fieldset>
+          <p><?=htmlspecialchars($row['gender'])?></p>
+          
           </div>
         </div>
 
         <div class="sm:col-span-3">
           <label for="email" class="block text-sm font-medium leading-6 text-gray-900">Email address</label>
           <div class="mt-2">
-            <input id="email" name="emailid" value="<?=$row['email']?>" type="email" autocomplete="email" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <p><?=htmlspecialchars($row['email'])?></p>
           </div>
         </div>
+      
         <div class="sm:col-span-3">
           <label for="postal-code" class="block text-sm font-medium leading-6 text-gray-900">Date of Birth</label>
           <div class="mt-2">
-            <input type="date" name="dob" id="dob" value='<?=$row['dob']?>' class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+            <p><?=htmlspecialchars($row['dob'])?></p>
           </div>
         </div>
         
-        <div class="sm:col-span-3">
-          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Password</label>
-          <div class="mt-2">
-            <input type="text" name="text" id="password" value='<?=$row['password']?>' autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
-          </div>
-        </div>
-
-        
+              
  
         <div class="col-span-full">
           <label for="street-address" class="block text-sm font-medium leading-6 text-gray-900">Address</label>
           <div class="mt-2">
-            <input type="text" name="address" id="address" value="<?=$row['addr']?>" autocomplete="street-address" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6">
+             <p><?=htmlspecialchars($row['addr'])?></p>
           </div>
         </div>
         
         <div class="sm:col-span-3">
-          <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Role (Cannot be edited)</label>
+          <label for="country" class="block text-sm font-medium leading-6 text-gray-900">Role</label>
           <div class="mt-2">
-            <select id="role" name="role" value="<?=$row['role']?>" autocomplete="country-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:max-w-xs sm:text-sm sm:leading-6"  >
-              <option>Employee</option>
-              <option>Admin</option>
-              
-            </select>
+           <p> <?=htmlspecialchars($row['role'])?></p>
           </div>
         </div>
 
       
         <div class="sm:col-span-3">
-          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Salary (Cannot be edited)</label>
+          <label for="first-name" class="block text-sm font-medium leading-6 text-gray-900">Salary</label>
           <div class="mt-2">
-            <input type="salary" name="salary" value="<?=$row['sal']?>" id="first-name" autocomplete="given-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+            <p><?=htmlspecialchars($row['sal'])?></p>
+
           </div>
         </div>
 
         <div class="sm:col-span-3">
-          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Designation (Cannot be edited)</label>
+          <label for="last-name" class="block text-sm font-medium leading-6 text-gray-900">Designation</label>
           <div class="mt-2">
-            <input type="text" name="designation" value="<?=$row['design']?>" id="designation" autocomplete="family-name" class="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-indigo-600 sm:text-sm sm:leading-6" >
+           <p><?=htmlspecialchars($row['design'])?></p>
+
           </div>
         </div>
 
-  
+   
       </div>
     </div>
 <!--
@@ -225,11 +214,22 @@
     </div>
   </div>
 -->
-  <div class="mt-6 flex items-center justify-end gap-x-6">
-    
-    <input type="submit" id="submit" name="submit" value="Submit" class="rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-indigo-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600">
-  </div>
-</form>
+
+<div class="mt-6 flex items-center justify-end gap-x-6">
+
+            <a href="/employees/edit?id=<?= $row['id'] ?>" class="inline-flex justify-center rounded-md border border-transparent bg-indigo-700 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Edit</a>
+           
+            <form method="POST" action="/employees">
+             <input type="hidden" name="_method" value="DELETE">
+             <input type="hidden" name="id" value="<?= $row['id'] ?>">  
+                       
+             <button class="inline-flex justify-center rounded-md border border-transparent bg-indigo-700 py-2 px-4 text-sm font-medium text-white shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2">Delete</button>
+               </form>
+            
+</div>
+
+
+
 
     </div>
   </main>

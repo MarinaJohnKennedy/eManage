@@ -2,7 +2,7 @@
 
 
 
-view("changepassword.view.php",[
+view("changepassword/edit.view.php",[
     'heading' => 'Change Password'
     ]);
 
